@@ -19,6 +19,12 @@
   <meta name="twitter:description" content="Final-year SWE at UBT · AWS DEA-C01 · DAMA CDMP · PMI CAPM · Open to co-op">
   <meta name="twitter:image" content="https://malikaalnajjar.github.io/profile.jpg">
 
+  <!-- SEO -->
+  <meta name="description" content="Malik AlNajjar - Data Engineer & Software Engineer. Final-year SWE at UBT (GPA 4.96/5.0), AWS DEA-C01 & SAA-C03 certified, DAMA CDMP, PMI CAPM. Building ETL pipelines, cloud infrastructure, and IoT systems. Open to co-op June 2026.">
+  <meta name="keywords" content="Malik AlNajjar, Data Engineer, Software Engineer, AWS, ETL, Cloud, Saudi Arabia, UBT, portfolio">
+  <meta name="author" content="Malik AlNajjar">
+  <!-- Preload hero image for performance -->
+  <link rel="preload" as="image" href="profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -685,6 +691,13 @@
       .hero-social{order:9;justify-content:center}
     }
 
+    /* Scroll indicator */
+    .scroll-indicator{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);color:var(--muted);opacity:.5;transition:opacity .3s,transform .3s;animation:scrollBounce 2s ease-in-out infinite;text-decoration:none;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:var(--card)}
+    .scroll-indicator:hover{opacity:1;color:var(--cyan);border-color:var(--cyan)}
+    @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+    #hero{position:relative}
+    @media(max-width:768px){.scroll-indicator{bottom:1rem}}
+
     /* Section content max-width polish */
     .awards-grid{max-width:860px;margin-left:auto;margin-right:auto}
     .certs-grid{max-width:960px;margin-left:auto;margin-right:auto}
@@ -807,6 +820,9 @@
     <div class="stat-box"><span class="stat-key">projects_built</span><div class="stat-num">4+</div><div class="stat-lbl">Production</div></div>
     <div class="stat-box"><span class="stat-key">students_reached</span><div class="stat-num">500+</div><div class="stat-lbl">Via GDG & ACM</div></div>
   </div>
+  <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+  </a>
 </section>
 
 <!-- ── About ── -->
@@ -1161,14 +1177,41 @@ const cvs = document.getElementById('canvas-bg');
 const cx = cvs.getContext('2d');
 let pts = [], rainCols = [];
 const RAIN_CHARS = '0123456789ABCDEF01><{}[];=_|+';
+const mouse = { x: -9999, y: -9999 };
+const REPEL_R = 120, REPEL_F = 3.5;
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+window.addEventListener('touchmove', e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }, {passive:true});
+window.addEventListener('touchend', () => { mouse.x = -9999; mouse.y = -9999; });
 function resize(){ cvs.width=innerWidth; cvs.height=innerHeight; }
 resize();
 window.addEventListener('resize',()=>{ resize(); init(); initRain(); });
 class P {
   constructor(){ this.r(); }
   r(){ this.x=Math.random()*cvs.width; this.y=Math.random()*cvs.height; this.vx=(Math.random()-.5)*.38; this.vy=(Math.random()-.5)*.38; this.s=Math.random()*1.4+.4; this.o=Math.random()*.38+.08; this.col=Math.random()>.5?'0,230,118':'0,191,165'; }
-  u(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>cvs.width)this.vx*=-1; if(this.y<0||this.y>cvs.height)this.vy*=-1; }
-  d(){ cx.beginPath(); cx.arc(this.x,this.y,this.s,0,Math.PI*2); cx.fillStyle=`rgba(${this.col},${this.o})`; cx.fill(); }
+  u(){
+    const dx=this.x-mouse.x, dy=this.y-mouse.y;
+    const d=Math.sqrt(dx*dx+dy*dy);
+    if(d<REPEL_R && d>0){
+      const f=(1-d/REPEL_R)*REPEL_F;
+      this.vx+=dx/d*f; this.vy+=dy/d*f;
+    }
+    const spd=Math.sqrt(this.vx*this.vx+this.vy*this.vy);
+    if(spd>3){ this.vx=this.vx/spd*3; this.vy=this.vy/spd*3; }
+    this.vx*=.97; this.vy*=.97;
+    this.x+=this.vx; this.y+=this.vy;
+    if(this.x<0||this.x>cvs.width)this.vx*=-1;
+    if(this.y<0||this.y>cvs.height)this.vy*=-1;
+  }
+  d(){
+    const dx=this.x-mouse.x, dy=this.y-mouse.y;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    const glow=dist<REPEL_R ? 1-(dist/REPEL_R) : 0;
+    const opacity=this.o+glow*.55;
+    const size=this.s+(glow*1.8);
+    cx.beginPath(); cx.arc(this.x,this.y,size,0,Math.PI*2);
+    cx.fillStyle=`rgba(${this.col},${Math.min(opacity,.95)})`; cx.fill();
+  }
 }
 function init(){ pts=[]; const n=Math.min(Math.floor(cvs.width*cvs.height/11000),110); for(let i=0;i<n;i++)pts.push(new P()); }
 function initRain(){
@@ -1204,7 +1247,14 @@ function draw(){
   pts.forEach(p=>{p.u();p.d();});
   for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
     const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-    if(d<115){ cx.beginPath(); cx.moveTo(pts[i].x,pts[i].y); cx.lineTo(pts[j].x,pts[j].y); cx.strokeStyle=`rgba(0,230,118,${(1-d/115)*.09})`; cx.lineWidth=.5; cx.stroke(); }
+    if(d<115){
+      const mx2=(pts[i].x+pts[j].x)/2, my2=(pts[i].y+pts[j].y)/2;
+      const dm=Math.sqrt((mx2-mouse.x)**2+(my2-mouse.y)**2);
+      const glow=dm<160?1-dm/160:0;
+      const alpha=(1-d/115)*(.09+glow*.28);
+      cx.beginPath(); cx.moveTo(pts[i].x,pts[i].y); cx.lineTo(pts[j].x,pts[j].y);
+      cx.strokeStyle=`rgba(0,230,118,${Math.min(alpha,.55)})`; cx.lineWidth=.5+glow*.8; cx.stroke();
+    }
   }
   requestAnimationFrame(draw);
 }

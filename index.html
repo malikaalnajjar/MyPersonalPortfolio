@@ -14,12 +14,34 @@
   <meta name="keywords" content="Malik AlNajjar, Data Engineer, Software Engineer, AWS, ETL, Cloud, Saudi Arabia, UBT, portfolio">
   <meta name="author" content="Malik AlNajjar">
   <link rel="canonical" href="https://malikaalnajjar.github.io">
+  <meta name="theme-color" content="#030803">
   <!-- Preload hero image for performance -->
   <link rel="preload" as="image" href="profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Malik AlNajjar",
+    "jobTitle": "Data Engineer & Software Engineer",
+    "url": "https://malikaalnajjar.github.io",
+    "email": "malik-naj@hotmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Business and Technology",
+      "address": { "@type": "PostalAddress", "addressLocality": "Jeddah", "addressCountry": "SA" }
+    },
+    "sameAs": [
+      "https://linkedin.com/in/malik-alnajjar",
+      "https://github.com/malikaalnajjar"
+    ],
+    "knowsAbout": ["Data Engineering", "ETL Pipelines", "AWS", "Python", "SQL", "Power BI", "IoT Systems", "Cloud Infrastructure"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Jeddah", "addressCountry": "SA" }
+  }
+  </script>
   <style>
     :root{
       --bg:#030803;--bg2:#071007;--card:rgba(0,230,118,.04);
@@ -132,7 +154,7 @@
     .photo-wrap{position:relative;width:min(360px,100%)}
     .photo-ring{position:absolute;inset:-4px;border-radius:22px;background:linear-gradient(135deg,#00e676,#1de9b6,#69f0ae,#00c853,#00e676);z-index:0}
     .photo-glow{position:absolute;inset:-8px;border-radius:26px;background:linear-gradient(135deg,var(--cyan),var(--purple));filter:blur(22px);opacity:.35;z-index:-1}
-    .photo-wrap img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top center;border-radius:18px;display:block;position:relative;z-index:1;border:3px solid var(--bg)}
+    .photo-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:18px;display:block;position:relative;z-index:1;border:3px solid var(--bg)}
     .avail-badge{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid rgba(34,197,94,.4);border-radius:50px;padding:.45rem 1.1rem;font-size:.8rem;font-weight:600;color:var(--green);display:flex;align-items:center;gap:.45rem;white-space:nowrap;z-index:2;backdrop-filter:blur(10px)}
     .avail-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
@@ -762,6 +784,21 @@
     .certs-grid{max-width:960px;margin-left:auto;margin-right:auto}
     .proj-grid{max-width:960px;margin-left:auto;margin-right:auto}
     .skills-grid{max-width:960px;margin-left:auto;margin-right:auto}
+
+    /* ── reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      #canvas-bg { display: none !important; }
+      .orb { display: none !important; }
+    }
+
+    /* ── footer email ── */
+    .footer-email{color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:.72rem;text-decoration:none;opacity:.6;transition:.2s}
+    .footer-email:hover{opacity:1}
+
+    /* ── coop banner as link ── */
+    a.coop-banner{text-decoration:none;cursor:pointer;transition:.2s}
+    a.coop-banner:hover{background:rgba(0,230,118,.13);border-color:rgba(0,230,118,.4)}
   </style>
 </head>
 <body>
@@ -806,14 +843,14 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-content">
-    <div class="coop-banner"><span class="coop-dot"></span> Open to Co-op · Available Now · Jeddah, KSA</div>
+    <a href="#contact" class="coop-banner"><span class="coop-dot"></span> Open to Full-Time · Available Now · Jeddah, KSA →</a>
     <p class="hero-greeting">// Hello, World! I'm</p>
     <h1 class="hero-name">Malik <span>AlNajjar</span></h1>
     <p class="hero-role"><span id="tw" class="tw"></span><span class="cur"></span></p>
     <p class="hero-desc">
-      Software Engineering graduate from UBT (GPA <strong>4.97/5.0</strong>, First Class Honours) building
-      <strong>ETL/ELT pipelines</strong>, <strong>AWS cloud infrastructure</strong>, and
-      <strong>IoT data systems</strong> aligned with Saudi Vision 2030.
+      I turn raw data into reliable pipelines — building <strong>ETL/ELT systems</strong>,
+      <strong>AWS cloud infrastructure</strong>, and <strong>IoT ingestion layers</strong> that actually reach production.
+      UBT graduate (GPA <strong>4.97/5.0</strong>, First Class Honours) · 10+ certifications · bilingual.
     </p>
     <div class="hero-badges">
       <span class="badge badge-c">AWS DEA-C01</span>
@@ -1114,7 +1151,7 @@
           <div class="cs-body">
             <div class="cs-row"><div class="cs-label">Challenge</div><div class="cs-text">Design an end-to-end IoT monitoring system for retail shelves: real-time sensor data, a scalable backend, and business-ready dashboards, built from scratch as a senior capstone.</div></div>
             <div class="cs-row"><div class="cs-label">Approach</div><div class="cs-text">3 ESP32 nodes publish to MQTT, ingested into PostgreSQL (8-table schema, 4+ indexes). FastAPI exposes 30 REST endpoints and a WebSocket hub. Power BI displays 5+ live KPIs. Prophet forecasts restocking needs from 6 months of sensor data.</div></div>
-            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Automated restocking decisions, sub-second alert delivery via WebSocket, and a reusable IoT-to-dashboard architecture applicable to any retail environment.</div></div>
+            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Sub-second WebSocket alerts, 6-month demand forecasts cutting restocking guesswork, 30 REST endpoints serving live KPI dashboards — end-to-end from sensor to BI report.</div></div>
           </div>
         </div>
       </div>
@@ -1180,7 +1217,7 @@
           <div class="cs-body">
             <div class="cs-row"><div class="cs-label">Challenge</div><div class="cs-text">Build a production system for a real bike-rental operation: real-time queue updates across multiple staff devices, inventory management, and a full POS — all installable on mobile with offline resilience.</div></div>
             <div class="cs-row"><div class="cs-label">Approach</div><div class="cs-text">Supabase Postgres with live subscriptions replaces polling. A service worker enables PWA install and offline fallback. Staff and customer views are fully separate. Sales engine handles cash/card splits, per-receipt discounts, add-ons with photo uploads, and refunds with audit trail.</div></div>
-            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Deployed and actively used in a live rental operation. Eliminated paper-based queuing, reduced booking errors, and gave staff real-time inventory visibility across sessions.</div></div>
+            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Live in production — replaced paper-based queuing for a real rental operation. Handles concurrent bookings across multiple staff devices with zero downtime, real-time inventory sync, and a full POS that works offline.</div></div>
           </div>
           <a href="https://micromobility-queue.pages.dev/" target="_blank" rel="noopener noreferrer" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Live ↗</a>
         </div>
@@ -1342,7 +1379,8 @@
   <div class="footer-inner">
     <div class="footer-divider"></div>
     <p class="footer-copy">Designed & built by <span>Malik AlNajjar</span> · 2026</p>
-    <p class="footer-built">// open to co-op · available now · jeddah, ksa</p>
+    <p class="footer-built">// open to full-time · available now · jeddah, ksa</p>
+    <a href="mailto:malik-naj@hotmail.com" class="footer-email">malik-naj@hotmail.com</a>
   </div>
 </footer>
 
@@ -1438,7 +1476,7 @@ function draw(){
   }
   requestAnimationFrame(draw);
 }
-init(); initRain(); draw();
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ init(); initRain(); draw(); }
 
 // ── TYPEWRITER ──
 const roles=['Data Engineer','Software Engineer','Data Analyst','AWS Cloud Architect','ETL Pipeline Builder'];

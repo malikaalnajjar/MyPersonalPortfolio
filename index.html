@@ -20,9 +20,10 @@
   <meta name="twitter:image" content="https://malikaalnajjar.github.io/profile.jpg">
 
   <!-- SEO -->
-  <meta name="description" content="Malik AlNajjar - Data Engineer & Software Engineer. Final-year SWE at UBT (GPA 4.96/5.0), AWS DEA-C01 & SAA-C03 certified, DAMA CDMP, PMI CAPM. Building ETL pipelines, cloud infrastructure, and IoT systems. Open to co-op June 2026.">
+  <meta name="description" content="Malik AlNajjar - Data Engineer & Software Engineer. UBT graduate (GPA 4.96/5.0), AWS DEA-C01 & SAA-C03 certified, DAMA CDMP, PMI CAPM. Building ETL pipelines, cloud infrastructure, and IoT systems. Available now.">
   <meta name="keywords" content="Malik AlNajjar, Data Engineer, Software Engineer, AWS, ETL, Cloud, Saudi Arabia, UBT, portfolio">
   <meta name="author" content="Malik AlNajjar">
+  <link rel="canonical" href="https://malikaalnajjar.github.io">
   <!-- Preload hero image for performance -->
   <link rel="preload" as="image" href="profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +126,8 @@
 
     /* ── about ── */
     #about{padding:100px 0}
-    .about-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start;max-width:800px;margin:0 auto}
+    .about-grid{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start;max-width:960px;margin:0 auto}
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
     .about-text p{color:var(--muted);margin-bottom:1.2rem;line-height:1.85;font-size:1rem}
     .about-text p strong{color:var(--text)}
     .highlights{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.6rem}
@@ -737,6 +739,9 @@
     .footer-built{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);opacity:.45;margin-top:.2rem}
     @media(max-width:768px){.footer-social{flex-wrap:wrap;justify-content:center}}
 
+    /* 5th project card full-width */
+    .proj-grid .proj-card:last-child:nth-child(2n+1){grid-column:1/-1;max-width:480px;margin:0 auto}
+
     /* Section content max-width polish */
     .awards-grid{max-width:860px;margin-left:auto;margin-right:auto}
     .certs-grid{max-width:960px;margin-left:auto;margin-right:auto}
@@ -765,12 +770,12 @@
 <nav id="nav">
   <a href="#hero" class="logo">&lt;MAN/&gt;</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about" data-sec="about">About</a></li>
-    <li><a href="#timeline" data-sec="timeline">Journey</a></li>
-    <li><a href="#skills" data-sec="skills">Skills</a></li>
-    <li><a href="#projects" data-sec="projects">Projects</a></li>
-    <li><a href="#certifications" data-sec="certifications">Certs</a></li>
-    <li><a href="#awards" data-sec="awards">Awards</a></li>
+    <li><a href="#about" data-sec="about">01 About</a></li>
+    <li><a href="#timeline" data-sec="timeline">02 Journey</a></li>
+    <li><a href="#skills" data-sec="skills">03 Skills</a></li>
+    <li><a href="#projects" data-sec="projects">04 Projects</a></li>
+    <li><a href="#certifications" data-sec="certifications">05 Certs</a></li>
+    <li><a href="#awards" data-sec="awards">06 Awards</a></li>
     <li><a href="#contact" class="nav-cta" data-sec="contact">Contact</a></li>
   </ul>
 <button class="theme-btn" id="themeBtn" aria-label="Toggle light/dark mode" onclick="toggleTheme()">
@@ -885,6 +890,13 @@
           <div class="hl-card"><div class="hl-icon">🤖</div><div class="hl-title">KAUST AI</div><div class="hl-desc">Advanced AI Specialization · 2025</div></div>
         </div>
       </div>
+      <div class="about-visual fi" data-d="2">
+        <div class="photo-wrap" style="width:100%">
+          <div class="photo-ring"></div>
+          <div class="photo-glow"></div>
+          <img src="profile.jpg" alt="Malik AlNajjar">
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -957,7 +969,7 @@
       <div class="tl-item fi" data-d="4">
         <div class="tl-empty"></div>
         <div class="tl-dot-col"><div class="tl-dot" style="background:var(--purple);box-shadow:0 0 10px rgba(0,191,165,.5)"></div></div>
-        <div class="tl-right tl-content" style="border-color:rgba(0,191,165,.3)"><div class="tl-date">May - Jun 2026</div><div class="tl-title">PL-300 + Graduation</div><div class="tl-sub">Scheduled Power BI Data Analyst Associate exam in May, then graduating from UBT with First Class Honours in June.</div><span class="tl-tag" style="background:rgba(0,191,165,.1);border-color:rgba(0,191,165,.3);color:var(--purple)">Upcoming</span></div>
+        <div class="tl-right tl-content" style="border-color:rgba(0,191,165,.3)"><div class="tl-date">Jun 2026</div><div class="tl-title">Graduated UBT — First Class Honours</div><div class="tl-sub">Graduated B.Sc. Software Engineering with a GPA of 4.96/5.0. PL-300 Power BI Data Analyst Associate exam scheduled for July 2026.</div><span class="tl-tag" style="background:rgba(0,191,165,.1);border-color:rgba(0,191,165,.3);color:var(--purple)">✓ Done</span></div>
       </div>
 
     </div>
@@ -1006,7 +1018,7 @@
     <div class="proj-grid">
       <div class="proj-card fi" data-d="1">
         <span class="proj-num">01</span>
-        <div class="proj-top"><div class="proj-ico" style="background:rgba(0,230,118,.15)">🛒</div><span class="proj-award">🎓 Senior Capstone 2025–26</span></div>
+        <div class="proj-top"><div class="proj-ico" style="background:rgba(0,230,118,.15)">🛒</div><div style="display:flex;gap:.5rem;align-items:center"><span class="proj-award">🎓 Senior Capstone 2025–26</span><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:.2rem .5rem;border-radius:6px">🔒 Private Repo</span></div></div>
         <div class="proj-body">
           <div class="proj-name">AUJ / أوج</div>
           <div class="proj-type">Smart Retail Shelf System</div>
@@ -1039,7 +1051,7 @@
       </div>
       <div class="proj-card fi" data-d="3">
         <span class="proj-num">03</span>
-        <div class="proj-top"><div class="proj-ico" style="background:rgba(105,240,174,.15)">♿</div><span class="proj-award">🥇 Top 15 / 500+ Teams</span></div>
+        <div class="proj-top"><div class="proj-ico" style="background:rgba(105,240,174,.15)">♿</div><div style="display:flex;gap:.5rem;align-items:center"><span class="proj-award">🥇 Top 15 / 500+ Teams</span><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:.2rem .5rem;border-radius:6px">🔒 Private Repo</span></div></div>
         <div class="proj-body">
           <div class="proj-name">Tayseer / تيسير</div>
           <div class="proj-type">Autonomous Wheelchair Edge Pipeline · AVITHON 2025 (GACA)</div>
@@ -1055,7 +1067,7 @@
       </div>
       <div class="proj-card fi" data-d="4">
         <span class="proj-num">04</span>
-        <div class="proj-top"><div class="proj-ico" style="background:rgba(34,197,94,.15)">🏔️</div><span class="proj-award">🌟 Aseer Tabtaker 2025</span></div>
+        <div class="proj-top"><div class="proj-ico" style="background:rgba(34,197,94,.15)">🏔️</div><div style="display:flex;gap:.5rem;align-items:center"><span class="proj-award">🌟 Aseer Tabtaker 2025</span><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:.2rem .5rem;border-radius:6px">🔒 Private Repo</span></div></div>
         <div class="proj-body">
           <div class="proj-name">Masra / مَسرَى</div>
           <div class="proj-type">Smart Adventure Tourism Platform</div>
@@ -1161,6 +1173,11 @@
         <div class="cert-logo" style="background:rgba(200,32,46,.12)"><img src="comptia.png" alt="CompTIA"><span class="fb" style="color:#C8202E">Comp<br>TIA</span></div>
         <div><div class="cert-name">CompTIA Data+</div><div class="cert-issuer">CompTIA</div><div class="cert-date">DA0-001 · Nov 2025</div></div>
       </a>
+
+      <div class="cert-card fi" data-d="1">
+        <div class="cert-logo text-logo" style="background:rgba(0,100,180,.12);color:#0064b4;font-size:.55rem">KAUST</div>
+        <div><div class="cert-name">Advanced AI Specialization</div><div class="cert-issuer">King Abdullah University of Science & Technology</div><div class="cert-date">Jan – Feb 2025</div></div>
+      </div>
 
     </div>
   </div>

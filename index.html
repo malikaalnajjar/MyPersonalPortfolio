@@ -14,7 +14,8 @@
   <meta name="keywords" content="Malik AlNajjar, Data Engineer, Software Engineer, AWS, ETL, Cloud, Saudi Arabia, UBT, portfolio">
   <meta name="author" content="Malik AlNajjar">
   <link rel="canonical" href="https://malikaalnajjar.github.io">
-  <meta name="theme-color" content="#030803">
+  <meta name="theme-color" content="#030803" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafcfa" media="(prefers-color-scheme: light)">
 
   <!-- Social link previews (LinkedIn, WhatsApp, X) -->
   <meta property="og:type" content="website">
@@ -277,15 +278,17 @@
 
     /* ── light mode ── */
     body.light{
-      --bg:#f0f7f0;--bg2:#e2efe2;--card:rgba(0,0,0,.04);
-      --text:#0a1a0a;--muted:#3a5e3a;--border:rgba(0,130,60,.15);
+      --bg:#fafcfa;--bg2:#eef3ee;--card:#ffffff;
+      --text:#0a1a0a;--muted:#3d5340;--border:rgba(16,45,26,.12);
       --cyan:#006b2e;--purple:#005a26;--pink:#2d8e5e;--green:#1a6a2e;
     }
-    body.light nav.scrolled{background:rgba(245,247,250,.96);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+    /* light mode elevates with white surfaces + soft sage-tinted shadows, not glows */
+    body.light .proj-card,body.light .skill-cat,body.light .cert-card,body.light .aw-card,body.light .hl-card,body.light .tl-content,body.light .stat-box,body.light .form-box{box-shadow:0 1px 2px rgba(22,52,32,.05),0 3px 10px rgba(22,52,32,.05)}
+    body.light nav.scrolled{background:rgba(250,252,250,.95);box-shadow:0 1px 0 rgba(0,0,0,.07)}
     body.light .orb{opacity:.04}
     body.light #canvas-bg{opacity:.12}
     /* section alternating backgrounds */
-    body.light #timeline,body.light #skills,body.light #certifications,body.light #contact{background:rgba(0,0,0,.025)}
+    body.light #timeline,body.light #skills,body.light #certifications,body.light #contact{background:rgba(22,52,32,.035)}
     /* hero badges */
     body.light .badge-c{background:rgba(0,122,69,.1);border-color:rgba(0,122,69,.3)}
     body.light .badge-p{background:rgba(0,107,94,.1);border-color:rgba(0,107,94,.3)}
@@ -296,17 +299,17 @@
     body.light .stag{background:rgba(0,107,94,.08);border-color:rgba(0,107,94,.2)}
     /* timeline & award tags */
     body.light .tl-tag{background:rgba(0,122,69,.1);border-color:rgba(0,122,69,.25)}
-    body.light .tl-content:hover{border-color:rgba(0,122,69,.35);box-shadow:0 8px 24px rgba(0,122,69,.1)}
+    body.light .tl-content:hover{border-color:rgba(0,122,69,.35);box-shadow:0 8px 24px rgba(22,52,32,.12)}
     /* project card accents */
-    body.light .proj-card:hover{border-color:rgba(0,122,69,.3);box-shadow:0 32px 64px rgba(0,0,0,.1),0 0 30px rgba(0,122,69,.08)}
+    body.light .proj-card:hover{border-color:rgba(0,122,69,.3);box-shadow:0 4px 10px rgba(22,52,32,.07),0 18px 44px rgba(22,52,32,.13)}
     body.light .proj-link{background:rgba(0,122,69,.08);border-color:rgba(0,122,69,.3)}
     body.light .proj-link:hover{background:rgba(0,122,69,.15);border-color:var(--cyan)}
     /* cert cards */
-    body.light .cert-card:hover{border-color:rgba(0,122,69,.3);box-shadow:0 0 22px rgba(0,122,69,.08)}
+    body.light .cert-card:hover{border-color:rgba(0,122,69,.3);box-shadow:0 8px 20px rgba(22,52,32,.11)}
     /* award cards */
     body.light .aw-card:hover{border-color:rgba(0,122,69,.22)}
     /* highlight cards */
-    body.light .hl-card:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,122,69,.1)}
+    body.light .hl-card:hover{border-color:var(--cyan);box-shadow:0 8px 20px rgba(22,52,32,.11)}
     /* form inputs */
     body.light .fg input,body.light .fg textarea{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12)}
     body.light .fg input:focus,body.light .fg textarea:focus{background:rgba(0,122,69,.03);border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,122,69,.1)}
@@ -413,7 +416,7 @@
     }
     .stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.4rem;text-align:center;backdrop-filter:blur(10px);transition:.3s}
     .stat-box:hover{border-color:rgba(0,230,118,.35);box-shadow:0 0 24px rgba(0,230,118,.12);transform:translateY(-3px)}
-    body.light .stat-box:hover{border-color:rgba(0,122,69,.35);box-shadow:0 0 24px rgba(0,122,69,.1)}
+    body.light .stat-box:hover{border-color:rgba(0,122,69,.35);box-shadow:0 8px 22px rgba(22,52,32,.11)}
     .proj-card:hover{box-shadow:inset 3px 0 0 var(--cyan),0 32px 64px rgba(0,0,0,.4),0 0 30px rgba(0,230,118,.08)}
     .skill-cat:hover{box-shadow:inset 3px 0 0 var(--cyan),0 20px 40px rgba(0,0,0,.3)}
     .aw-card:hover{box-shadow:inset 3px 0 0 var(--cyan)}

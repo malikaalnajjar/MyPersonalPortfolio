@@ -69,7 +69,7 @@
     :root{
       --bg:#030803;--bg2:#071007;--card:rgba(0,230,118,.04);
       --cyan:#00e676;--purple:#00c853;--pink:#69f0ae;--green:#22c55e;
-      --text:#edf5ed;--muted:#527852;--border:rgba(0,230,118,.13);
+      --text:#edf5ed;--muted:#74a074;--border:rgba(0,230,118,.13);
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -370,6 +370,14 @@
     /* ── focus rings (accessibility) ── */
     :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
     a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+    /* ── polish ── */
+    ::selection{background:rgba(0,230,118,.28);color:#eafff2}
+    body.light ::selection{background:rgba(0,107,46,.16);color:#07230f}
+    section[id]{scroll-margin-top:80px}
+    .sec-title,.hero-name{text-wrap:balance}
+    .stat-num{font-variant-numeric:tabular-nums}
+    body{transition:background-color .35s ease,color .35s ease}
 
     /* ── footer ── */
     footer{padding:2.5rem 0;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.86rem;position:relative;z-index:1}

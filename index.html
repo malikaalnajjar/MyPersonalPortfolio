@@ -1035,7 +1035,7 @@
       </div>
       <div class="skill-cat fi" data-d="2">
         <div class="sk-hdr"><div class="sk-icon p"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><div class="sk-title">Languages & Databases</div></div>
-        <div class="tech-tags" style="margin-top:0"><span class="tt">Python (Pandas, NumPy, Scikit-learn)</span><span class="tt">SQL (PostgreSQL, MySQL)</span><span class="tt">JavaScript</span><span class="tt">R</span><span class="tt">Redis</span><span class="tt">FastAPI</span><span class="tt">Prophet</span><span class="tt">One-Class SVM</span><span class="tt">Supabase</span></div>
+        <div class="tech-tags" style="margin-top:0"><span class="tt">Python (Pandas, NumPy, Scikit-learn)</span><span class="tt">SQL (PostgreSQL, MySQL)</span><span class="tt">JavaScript</span><span class="tt">R</span><span class="tt">Redis</span><span class="tt">FastAPI</span><span class="tt">LightGBM</span><span class="tt">Prophet</span><span class="tt">One-Class SVM</span><span class="tt">Supabase</span></div>
       </div>
       <div class="skill-cat fi" data-d="3">
         <div class="sk-hdr"><div class="sk-icon pk"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><div class="sk-title">BI & Analytics</div></div>
@@ -1043,7 +1043,7 @@
       </div>
       <div class="skill-cat fi" data-d="4">
         <div class="sk-hdr"><div class="sk-icon g"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg></div><div class="sk-title">IoT & Systems</div></div>
-        <div class="tech-tags" style="margin-top:0"><span class="tt">IoT (ESP32, MQTT)</span><span class="tt">Edge Computing (Jetson Nano, ROS)</span><span class="tt">REST APIs & WebSocket</span><span class="tt">Linux / Bash</span><span class="tt">TLS 1.3</span><span class="tt">AES-256</span><span class="tt">LiDAR</span><span class="tt">RealSense</span><span class="tt">Git</span></div>
+        <div class="tech-tags" style="margin-top:0"><span class="tt">IoT (ESP32, MQTT)</span><span class="tt">YOLO / ByteTrack</span><span class="tt">Edge Computing (Jetson Nano, ROS)</span><span class="tt">REST APIs & WebSocket</span><span class="tt">Linux / Bash</span><span class="tt">TLS 1.3</span><span class="tt">AES-256</span><span class="tt">LiDAR</span><span class="tt">RealSense</span><span class="tt">Git</span></div>
       </div>
     </div>
   </div>
@@ -1063,13 +1063,13 @@
         <div class="proj-body">
           <div class="proj-name">AUJ / أوج</div>
           <div class="proj-type">Smart Retail Shelf System</div>
-          <p class="proj-desc">Full-stack IoT data pipeline: 3 ESP32 nodes → MQTT → PostgreSQL (8-table schema, 4+ indexes) → FastAPI (30 REST endpoints + real-time WebSocket) → Power BI dashboard with 5+ KPIs. Prophet forecasting on 6-month dataset automates restocking decisions.</p>
-          <div class="proj-stack"><span class="stag">ESP32</span><span class="stag">MQTT</span><span class="stag">PostgreSQL</span><span class="stag">FastAPI</span><span class="stag">Prophet</span><span class="stag">WebSocket</span><span class="stag">Power BI</span><span class="stag">React</span></div>
+          <p class="proj-desc">Dual-sensor smart shelf for small retailers: a load cell and camera on ESP32-S3 publish events over MQTT to a local FastAPI + PostgreSQL hub (29 REST routes, live WebSocket). A fine-tuned YOLOv12n verifier cross-checks every weight event against its camera clip, LightGBM quantile models (q10/q50/q90) forecast per-SKU demand, and a five-rule engine reprices within a ±15% band with a full audit log. Zero PII, fully offline, 143 passing integration tests, 80 SAR per shelf.</p>
+          <div class="proj-stack"><span class="stag">ESP32-S3</span><span class="stag">MQTT</span><span class="stag">PostgreSQL</span><span class="stag">FastAPI</span><span class="stag">LightGBM</span><span class="stag">YOLOv12</span><span class="stag">ByteTrack</span><span class="stag">WebSocket</span><span class="stag">React</span></div>
           <button class="cs-toggle" onclick="toggleCS(this)" aria-expanded="false"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg> Case Study</button>
           <div class="cs-body">
-            <div class="cs-row"><div class="cs-label">Challenge</div><div class="cs-text">Design an end-to-end IoT monitoring system for retail shelves: real-time sensor data, a scalable backend, and business-ready dashboards, built from scratch as a senior capstone.</div></div>
-            <div class="cs-row"><div class="cs-label">Approach</div><div class="cs-text">3 ESP32 nodes publish to MQTT, ingested into PostgreSQL (8-table schema, 4+ indexes). FastAPI exposes 30 REST endpoints and a WebSocket hub. Power BI displays 5+ live KPIs. Prophet forecasts restocking needs from 6 months of sensor data.</div></div>
-            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Sub-second WebSocket alerts, 6-month demand forecasts cutting restocking guesswork, 30 REST endpoints serving live KPI dashboards — end-to-end from sensor to BI report.</div></div>
+            <div class="cs-row"><div class="cs-label">Challenge</div><div class="cs-text">Give a small Saudi retailer real-time shelf visibility: live inventory, customer behaviour, demand forecasts, and dynamic pricing, on commodity hardware, fully offline, with zero personally identifying data (PDPL-aligned) and an 80 SAR per-shelf budget.</div></div>
+            <div class="cs-row"><div class="cs-label">Approach</div><div class="cs-text">Each shelf pairs a 10 Hz load cell running a four-state FSM with a camera: confirmed events publish over MQTT while an 8-frame clip uploads over HTTP. The local hub (FastAPI + PostgreSQL 16) cross-checks weight against a fine-tuned YOLOv12n verifier with a frame-diff fallback, tracks aisle behaviour with ByteTrack using transient IDs only, forecasts demand with LightGBM quantile models trained on the M5 dataset, and reprices daily through five rules in strict precedence inside a ±15% band.</div></div>
+            <div class="cs-row"><div class="cs-label">Impact</div><div class="cs-text">Pick-to-dashboard latency in seconds, every price change audit-logged, sensor disagreements raised as discrepancy alerts, and 143 integration tests passing against a real PostgreSQL instance. All data stays in the store: no cloud, no PII.</div></div>
           </div>
         </div>
       </div>
@@ -1607,7 +1607,7 @@ const AR_LIST = {
   '.proj-type': ['نظام أرفف تجزئة ذكي','منصة جودة البيانات والتحقق','كرسي متحرك ذاتي القيادة · أفيثون 2025 (هيئة الطيران المدني)','منصة سياحة مغامرات ذكية','منصة حجز دراجات وفعاليات · تطبيق ويب تقدمي'],
   '.proj-award': ['مشروع تخرج 2025-26','متأهل لنهائيات الإحصاء','أفضل 15 / +500 فريق','عسير تبتكر 2025','مباشر وقيد التشغيل'],
   '.proj-desc': [
-    'خط بيانات إنترنت أشياء متكامل: 3 وحدات ESP32 عبر MQTT إلى PostgreSQL (مخطط من 8 جداول مع فهارس)، ثم FastAPI (30 نقطة REST مع WebSocket لحظي)، ولوحة Power BI بأكثر من 5 مؤشرات. تنبؤ Prophet على بيانات 6 أشهر لأتمتة قرارات إعادة التخزين.',
+    'رف تجزئة ذكي ثنائي الاستشعار للمتاجر الصغيرة: خلية وزن وكاميرا على ESP32-S3 تنشران الأحداث عبر MQTT إلى خادم محلي FastAPI مع PostgreSQL (29 نقطة REST مع WebSocket مباشر). يتحقق نموذج YOLOv12n من كل حدث وزن عبر مقطع الكاميرا، وتتنبأ نماذج LightGBM الكمّية (q10/q50/q90) بالطلب لكل صنف، ويعدّل محرك من خمس قواعد الأسعار ضمن نطاق ±15% مع سجل تدقيق كامل. دون أي بيانات شخصية، ويعمل دون اتصال، مع 143 اختبار تكامل ناجحاً وبكلفة 80 ريالاً للرف.',
     'تحقق ETL ثلاثي الطبقات عبر 3-5 مجموعات بيانات حكومية من الهيئة العامة للإحصاء: فحوص مخطط (Great Expectations)، وتوصيف إحصائي، وكشف شذوذ بتعلم الآلة (One-Class SVM دون أمثلة موسومة). AWS ECS Fargate مع تخزين Redis المؤقت: خفض زمن الاستجابة بأكثر من 60%. تقارير عربية بنموذج لغوي دون خروج أي بيانات من الشبكة الحكومية.',
     'دمج حساسات مزدوج (LiDAR + Intel RealSense D435) على Jetson Nano بنظام ROS. كشف عوائق لحظي بزمن أقل من 100ms. طبقة أمان كاملة TLS 1.3 + AES-256 لكل الاتصالات. اختبار ميداني في مطار الملك عبدالعزيز الدولي بجدة. ضمن أفضل 15 من بين أكثر من 500 فريق على مستوى المملكة.',
     'خط استيعاب بيانات إنترنت أشياء سحابي لسياحة المغامرات في عسير: تدفقات حساسات لحظية (GPS وطقس وحيوية) إلى AWS Lambda فبحيرة بيانات S3، مع محرك تنبيهات سلامة بتعلم الآلة بزمن استجابة أقل من دقيقة. واجهة للسياح ولوحة مباشرة للجهات المختصة. قُدم لمسؤولين حكوميين في عسير تبتكر 2025 بما يتماشى مع رؤية 2030.',
@@ -1615,9 +1615,9 @@ const AR_LIST = {
   ],
   '.cs-label': Array(5).fill(['التحدي','الحل','الأثر']).flat(),
   '.cs-text': [
-    'تصميم نظام مراقبة إنترنت أشياء متكامل لأرفف التجزئة: بيانات حساسات لحظية، وخلفية قابلة للتوسع، ولوحات جاهزة للأعمال، بُني من الصفر كمشروع تخرج.',
-    '3 وحدات ESP32 تنشر عبر MQTT إلى PostgreSQL (8 جداول مع فهارس). تكشف FastAPI عن 30 نقطة REST ومركز WebSocket، وتعرض Power BI أكثر من 5 مؤشرات حية، ويتنبأ Prophet باحتياجات إعادة التخزين من بيانات 6 أشهر.',
-    'تنبيهات WebSocket بأقل من ثانية، وتنبؤات طلب لستة أشهر تقلص تخمين إعادة التخزين، و30 نقطة REST تغذي لوحات مؤشرات حية: من الحساس إلى تقرير ذكاء الأعمال.',
+    'منح متاجر التجزئة الصغيرة في السعودية رؤية لحظية للرف: مخزون حي وسلوك عملاء وتنبؤ بالطلب وتسعير ديناميكي، على عتاد شائع، دون إنترنت، ودون أي بيانات تعريف شخصية (متوافق مع نظام حماية البيانات الشخصية) وبميزانية 80 ريالاً للرف.',
+    'كل رف يجمع خلية وزن بتردد 10 هرتز مع آلة حالات رباعية وكاميرا: الأحداث المؤكدة تُنشر عبر MQTT بينما يُرفع مقطع من 8 إطارات عبر HTTP. يتحقق الخادم المحلي (FastAPI مع PostgreSQL 16) من الوزن عبر نموذج YOLOv12n مضبوط مع احتياطي فرق الإطارات، ويتتبع سلوك الممر بـ ByteTrack بمعرفات مؤقتة فقط، ويتنبأ بالطلب بنماذج LightGBM الكمّية المدربة على بيانات M5، ويعيد التسعير يومياً عبر خمس قواعد بأسبقية صارمة ضمن نطاق ±15%.',
+    'زمن من الالتقاط إلى اللوحة بثوانٍ، وكل تغيير سعر مسجل للتدقيق، وأي تعارض بين الحساسين يُرفع تنبيه تضارب، و143 اختبار تكامل ناجحاً على قاعدة PostgreSQL حقيقية. كل البيانات تبقى داخل المتجر: لا سحابة ولا بيانات شخصية.',
     'التحقق من جودة بيانات الهيئة العامة للإحصاء دون أمثلة شذوذ موسومة ومع منع خروج أي بيانات من الشبكة الحكومية.',
     'خط ثلاثي الطبقات: فحوص مخطط عبر Great Expectations، وتوصيف إحصائي لكشف الانحراف، وOne-Class SVM لتقييم الشذوذ دون إشراف. يخزّن Redis النتائج مؤقتاً، وتُولَّد تقارير عربية محلياً عبر Ollama على AWS ECS Fargate.',
     'خفض زمن الاستجابة بأكثر من 60% عبر Redis، والتأهل لنهائيات هاكاثون الهيئة، وصفر تسريب بيانات بحكم التصميم وفق متطلبات الامتثال الحكومية الصارمة.',
